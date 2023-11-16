@@ -1,0 +1,3 @@
+[submodule "lib/fhe"]
+	path = lib/fhe
+	url = https://github.com/ewynx/fhe.rs.git
