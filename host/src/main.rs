@@ -89,7 +89,9 @@ fn main() -> Result<(), Box<dyn Error>> {
     // Deserialize resulting ciphertext
     let result: Vec<u8> = receipt.journal.decode().unwrap();
     let calculated_sum: Ciphertext = Ciphertext::from_bytes(&result, &params).unwrap();
-
+    
+    receipt.verify(PROVER_ID).unwrap();
+    
     let tally = Arc::new(calculated_sum);
 
     let mut decryption_shares = Vec::with_capacity(num_parties);
